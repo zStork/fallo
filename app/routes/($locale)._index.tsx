@@ -99,7 +99,10 @@ export default function Homepage() {
         title="Golf Bags"
         panelColor="bg-fallo-charcoal"
         clientLogos={['Adidas', 'Belding', 'Team Golf USA']}
-        productImages={['/placeholder-golf-1.jpg', '/placeholder-golf-2.jpg']}
+        productImages={[
+          'https://cdn.shopify.com/s/files/1/0732/7311/4843/files/fallocorp-golf-62.jpg?v=1733857525',
+          'https://cdn.shopify.com/s/files/1/0732/7311/4843/files/fallocorp-golf-77.jpg?v=1733857525'
+        ]}
         reverse={false}
       />
 
