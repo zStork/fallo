@@ -1,12 +1,110 @@
 import { defer, type LoaderFunctionArgs } from '@shopify/remix-oxygen';
 import { useLoaderData } from '@remix-run/react';
 import { motion } from 'framer-motion';
+import { useState } from 'react';
 
 export async function loader({ context }: LoaderFunctionArgs) {
   return defer({});
 }
 
+// Sample NCAA products from Jardines partnership
+const ncaaProducts = [
+  {
+    id: 1,
+    image: 'https://cdn.shopify.com/s/files/1/0718/0350/2662/files/HC3PCK-SL-64-A-AlabamaUof.jpg',
+    title: 'Alabama 3-Pack Headcover Set',
+    category: 'Headcovers',
+    school: 'University of Alabama'
+  },
+  {
+    id: 2,
+    image: 'https://cdn.shopify.com/s/files/1/0718/0350/2662/files/HC3PCK-SL-89-A-MichiganUof.jpg',
+    title: 'Michigan 3-Pack Headcover Set',
+    category: 'Headcovers',
+    school: 'University of Michigan'
+  },
+  {
+    id: 3,
+    image: 'https://cdn.shopify.com/s/files/1/0718/0350/2662/files/HC3PCK-ST-15-A-OhioStateU.jpg',
+    title: 'Ohio State 3-Pack Headcover Set',
+    category: 'Headcovers',
+    school: 'Ohio State University'
+  },
+  {
+    id: 4,
+    image: 'https://cdn.shopify.com/s/files/1/0718/0350/2662/files/BT1620-2-A-GeorgiaUof.jpg',
+    title: 'Georgia Bar Towel',
+    category: 'Towels',
+    school: 'University of Georgia'
+  },
+  {
+    id: 5,
+    image: 'https://cdn.shopify.com/s/files/1/0718/0350/2662/files/HCB-PNNT-117-A-Harvard.jpg',
+    title: 'Harvard Blade Headcover',
+    category: 'Headcovers',
+    school: 'Harvard University'
+  },
+  {
+    id: 6,
+    image: 'https://cdn.shopify.com/s/files/1/0718/0350/2662/files/HC3PCK-SL-110-A-StanfordU.jpg',
+    title: 'Stanford 3-Pack Headcover Set',
+    category: 'Headcovers',
+    school: 'Stanford University'
+  },
+  {
+    id: 7,
+    image: 'https://cdn.shopify.com/s/files/1/0718/0350/2662/files/BT1620-87-A-TexasAMU.jpg',
+    title: 'Texas A&M Bar Towel',
+    category: 'Towels',
+    school: 'Texas A&M University'
+  },
+  {
+    id: 8,
+    image: 'https://cdn.shopify.com/s/files/1/0718/0350/2662/files/HC3PCK-SL-71-A-FloridaState.jpg',
+    title: 'Florida State 3-Pack Headcover Set',
+    category: 'Headcovers',
+    school: 'Florida State University'
+  },
+  {
+    id: 9,
+    image: 'https://cdn.shopify.com/s/files/1/0718/0350/2662/files/HCD-SL-86-A-PennState.jpg',
+    title: 'Penn State Driver Headcover',
+    category: 'Headcovers',
+    school: 'Pennsylvania State University'
+  },
+  {
+    id: 10,
+    image: 'https://cdn.shopify.com/s/files/1/0718/0350/2662/files/HC3PCK-SL-3-A-KentuckyUof.jpg',
+    title: 'Kentucky 3-Pack Headcover Set',
+    category: 'Headcovers',
+    school: 'University of Kentucky'
+  },
+  {
+    id: 11,
+    image: 'https://cdn.shopify.com/s/files/1/0718/0350/2662/files/BT1620-96-A-TennesseeUof.jpg',
+    title: 'Tennessee Bar Towel',
+    category: 'Towels',
+    school: 'University of Tennessee'
+  },
+  {
+    id: 12,
+    image: 'https://cdn.shopify.com/s/files/1/0718/0350/2662/files/HC3PCK-SL-194-A-USNavalAcademy.jpg',
+    title: 'Naval Academy 3-Pack Headcover Set',
+    category: 'Headcovers',
+    school: 'US Naval Academy'
+  }
+];
+
+const categories = ['All', 'Headcovers', 'Towels'];
+
 export default function JardinesPage() {
+  const [activeFilter, setActiveFilter] = useState('All');
+
+  const filteredProducts = ncaaProducts.filter(product => {
+    if (activeFilter === 'All') return true;
+    return product.category === activeFilter;
+  });
+
   return (
     <div className="bg-fallo-black">
       {/* Hero Section */}
@@ -14,8 +112,8 @@ export default function JardinesPage() {
         <div className="absolute inset-0 bg-gradient-to-b from-fallo-black/80 to-fallo-black/60 z-10" />
         <div className="absolute inset-0">
           <img
-            src="https://cdn.shopify.com/s/files/1/0732/7311/4843/files/TYLER-GLITTERHEART-TOTE-625.webp?v=1773020174"
-            alt="Jardines Partnership"
+            src="https://cdn.shopify.com/s/files/1/0718/0350/2662/files/HC3PCK-SL-64-A-AlabamaUof.jpg"
+            alt="Jardines NCAA Partnership"
             className="w-full h-full object-cover opacity-40"
           />
         </div>
@@ -42,7 +140,7 @@ export default function JardinesPage() {
             transition={{ duration: 0.8, delay: 0.4 }}
             className="font-display italic text-2xl md:text-3xl text-fallo-gold"
           >
-            A Legacy of Excellence
+            NCAA Licensed Golf Accessories
           </motion.p>
         </div>
       </section>
@@ -58,15 +156,37 @@ export default function JardinesPage() {
             className="text-center mb-16"
           >
             <h2 className="font-display font-light text-4xl md:text-5xl text-fallo-black mb-8">
-              Crafting Excellence Together
+              Officially Licensed NCAA Golf Accessories
             </h2>
             <div className="w-20 h-px bg-fallo-gold mx-auto mb-8" />
             <p className="font-sans font-light text-lg text-gray-600 leading-relaxed">
-              Fallo Corporation is proud to partner with Jardines, bringing together decades of 
-              craftsmanship expertise and innovative design. This collaboration represents our 
-              commitment to creating products that embody both tradition and forward-thinking design.
+              Fallo Corporation proudly partners with Jardines to manufacture premium NCAA licensed 
+              golf accessories. This collection features officially licensed headcovers and towels 
+              for top collegiate programs across the nation, combining superior craftsmanship with 
+              authentic team branding.
             </p>
           </motion.div>
+        </div>
+      </section>
+
+      {/* Filter Tabs */}
+      <section className="bg-fallo-graphite py-12">
+        <div className="max-w-container mx-auto px-6 md:px-12 lg:px-24">
+          <div className="flex flex-wrap justify-center gap-4 mb-12">
+            {categories.map((category) => (
+              <button
+                key={category}
+                onClick={() => setActiveFilter(category)}
+                className={`font-label text-sm tracking-widest uppercase px-6 py-3 transition-all duration-300 ${
+                  activeFilter === category
+                    ? 'bg-fallo-gold text-fallo-black'
+                    : 'bg-transparent text-fallo-cream border border-fallo-gold/40 hover:border-fallo-gold'
+                }`}
+              >
+                {category}
+              </button>
+            ))}
+          </div>
         </div>
       </section>
 
@@ -80,147 +200,37 @@ export default function JardinesPage() {
             transition={{ duration: 0.8 }}
             className="font-display font-light text-4xl md:text-5xl text-fallo-cream text-center mb-16"
           >
-            The Collection
+            NCAA Licensed Collection
           </motion.h2>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-            {/* Product 1 */}
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.6 }}
-              className="group"
-            >
-              <div className="aspect-[3/4] overflow-hidden bg-fallo-black mb-4">
-                <img
-                  src="https://cdn.shopify.com/s/files/1/0732/7311/4843/files/TYLER-GLITTERHEART-TOTE-625.webp?v=1773020174"
-                  alt="Jardines Collection - Tote"
-                  className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
-                />
-              </div>
-              <h3 className="font-display text-2xl text-fallo-cream mb-2">
-                Premium Tote
-              </h3>
-              <p className="font-label text-xs tracking-widest uppercase text-fallo-gold">
-                Lifestyle Collection
-              </p>
-            </motion.div>
-
-            {/* Product 2 */}
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.6, delay: 0.1 }}
-              className="group"
-            >
-              <div className="aspect-[3/4] overflow-hidden bg-fallo-black mb-4">
-                <img
-                  src="https://cdn.shopify.com/s/files/1/0732/7311/4843/files/IMG_92711-864x1080-1.webp?v=1733888739"
-                  alt="Jardines Collection - Bag"
-                  className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
-                />
-              </div>
-              <h3 className="font-display text-2xl text-fallo-cream mb-2">
-                Signature Bag
-              </h3>
-              <p className="font-label text-xs tracking-widest uppercase text-fallo-gold">
-                Lifestyle Collection
-              </p>
-            </motion.div>
-
-            {/* Product 3 */}
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.6, delay: 0.2 }}
-              className="group"
-            >
-              <div className="aspect-[3/4] overflow-hidden bg-fallo-black mb-4">
-                <img
-                  src="https://cdn.shopify.com/s/files/1/0732/7311/4843/files/two-button-jacket-featured_fab611e4-3c39-4039-8c88-30652fcd151c.webp?v=1733891904"
-                  alt="Jardines Collection - Jacket"
-                  className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
-                />
-              </div>
-              <h3 className="font-display text-2xl text-fallo-cream mb-2">
-                Two-Button Jacket
-              </h3>
-              <p className="font-label text-xs tracking-widest uppercase text-fallo-gold">
-                Garment Collection
-              </p>
-            </motion.div>
-
-            {/* Product 4 */}
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.6, delay: 0.3 }}
-              className="group"
-            >
-              <div className="aspect-[3/4] overflow-hidden bg-fallo-black mb-4">
-                <img
-                  src="https://cdn.shopify.com/s/files/1/0732/7311/4843/files/double-breasted-jacket-3-500x625_c17614a8-7941-4688-8572-e29819dc292d.webp?v=1733887124"
-                  alt="Jardines Collection - Double-Breasted Jacket"
-                  className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
-                />
-              </div>
-              <h3 className="font-display text-2xl text-fallo-cream mb-2">
-                Double-Breasted Jacket
-              </h3>
-              <p className="font-label text-xs tracking-widest uppercase text-fallo-gold">
-                Garment Collection
-              </p>
-            </motion.div>
-
-            {/* Product 5 */}
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.6, delay: 0.4 }}
-              className="group"
-            >
-              <div className="aspect-[3/4] overflow-hidden bg-fallo-black mb-4">
-                <img
-                  src="https://cdn.shopify.com/s/files/1/0732/7311/4843/files/fallocorp-golf-62.jpg?v=1733857525"
-                  alt="Jardines Collection - Golf Bag"
-                  className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
-                />
-              </div>
-              <h3 className="font-display text-2xl text-fallo-cream mb-2">
-                Premium Golf Bag
-              </h3>
-              <p className="font-label text-xs tracking-widest uppercase text-fallo-gold">
-                Golf Collection
-              </p>
-            </motion.div>
-
-            {/* Product 6 */}
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.6, delay: 0.5 }}
-              className="group"
-            >
-              <div className="aspect-[3/4] overflow-hidden bg-fallo-black mb-4">
-                <img
-                  src="https://cdn.shopify.com/s/files/1/0732/7311/4843/files/fallocorp-golf-77.jpg?v=1733857525"
-                  alt="Jardines Collection - Golf Bag"
-                  className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
-                />
-              </div>
-              <h3 className="font-display text-2xl text-fallo-cream mb-2">
-                Tour Golf Bag
-              </h3>
-              <p className="font-label text-xs tracking-widest uppercase text-fallo-gold">
-                Golf Collection
-              </p>
-            </motion.div>
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-8">
+            {filteredProducts.map((product, index) => (
+              <motion.div
+                key={product.id}
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.6, delay: index * 0.05 }}
+                className="group"
+              >
+                <div className="aspect-square overflow-hidden bg-fallo-black mb-4">
+                  <img
+                    src={product.image}
+                    alt={product.title}
+                    className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
+                  />
+                </div>
+                <h3 className="font-display text-xl text-fallo-cream mb-1">
+                  {product.title}
+                </h3>
+                <p className="font-sans text-sm text-fallo-muted mb-2">
+                  {product.school}
+                </p>
+                <p className="font-label text-xs tracking-widest uppercase text-fallo-gold">
+                  {product.category}
+                </p>
+              </motion.div>
+            ))}
           </div>
         </div>
       </section>
