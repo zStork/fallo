@@ -87,7 +87,10 @@ export default function Homepage() {
         title="Lifestyle Garments"
         panelColor="bg-fallo-graphite"
         clientLogos={['Brands & People']}
-        productImages={['/placeholder-garment-1.jpg', '/placeholder-garment-2.jpg']}
+        productImages={[
+          'https://cdn.shopify.com/s/files/1/0732/7311/4843/files/two-button-jacket-featured_fab611e4-3c39-4039-8c88-30652fcd151c.webp?v=1733891904',
+          'https://cdn.shopify.com/s/files/1/0732/7311/4843/files/double-breasted-jacket-3-500x625_c17614a8-7941-4688-8572-e29819dc292d.webp?v=1733887124'
+        ]}
         reverse={true}
       />
 
