@@ -11,6 +11,19 @@ export default {
         contrast: 'rgb(var(--color-contrast) / <alpha-value>)',
         notice: 'rgb(var(--color-accent) / <alpha-value>)',
         shopPay: 'rgb(var(--color-shop-pay) / <alpha-value>)',
+        fallo: {
+          black: '#0a0a0a',
+          charcoal: '#141414',
+          graphite: '#1e1e1e',
+          smoke: '#2a2a2a',
+          khaki: '#b5a27f',
+          sand: '#c8b89a',
+          cream: '#f0ebe2',
+          gold: '#c9a96e',
+          champagne: '#d4af7a',
+          white: '#ffffff',
+          muted: '#8a8a8a',
+        },
       },
       screens: {
         sm: '32em',
@@ -41,6 +54,8 @@ export default {
       fontFamily: {
         sans: ['Helvetica Neue', 'ui-sans-serif', 'system-ui', 'sans-serif'],
         serif: ['"IBMPlexSerif"', 'Palatino', 'ui-serif'],
+        display: ['Cormorant Garamond', 'Georgia', 'serif'],
+        label: ['Montserrat', 'system-ui', 'sans-serif'],
       },
       fontSize: {
         display: ['var(--font-size-display)', '1.1'],
@@ -52,11 +67,22 @@ export default {
       maxWidth: {
         'prose-narrow': '45ch',
         'prose-wide': '80ch',
+        container: '1440px',
       },
       boxShadow: {
         border: 'inset 0px 0px 0px 1px rgb(var(--color-primary) / 0.08)',
         darkHeader: 'inset 0px -1px 0px 0px rgba(21, 21, 21, 0.4)',
         lightHeader: 'inset 0px -1px 0px 0px rgba(21, 21, 21, 0.05)',
+      },
+      animation: {
+        marquee: 'marquee 30s linear infinite',
+        'bounce-slow': 'bounce 3s infinite',
+      },
+      keyframes: {
+        marquee: {
+          '0%': { transform: 'translateX(0%)' },
+          '100%': { transform: 'translateX(-50%)' },
+        },
       },
     },
   },
