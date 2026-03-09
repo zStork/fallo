@@ -229,12 +229,11 @@ function MobileHeader({
         className="flex items-center self-stretch leading-[3rem] md:leading-[4rem] justify-center flex-grow w-full h-full"
         to="/"
       >
-        <Heading
-          className="font-bold text-center leading-none"
-          as={isHome ? 'h1' : 'h2'}
-        >
-          {title}
-        </Heading>
+        <img 
+          src="https://cdn.shopify.com/s/files/1/0718/0350/2662/files/fallo-logo-gold.svg?v=1773013247"
+          alt="Fallo Corp"
+          className="h-8 md:h-10"
+        />
       </Link>
 
       <div className="flex items-center justify-end w-full gap-4">
@@ -270,8 +269,12 @@ function DesktopHeader({
       } hidden h-nav lg:flex items-center sticky transition duration-300 backdrop-blur-lg z-40 top-0 justify-between w-full leading-none gap-8 px-12 py-8`}
     >
       <div className="flex gap-12">
-        <Link className="font-bold" to="/" prefetch="intent">
-          {title}
+        <Link className="flex items-center" to="/" prefetch="intent">
+          <img 
+            src="https://cdn.shopify.com/s/files/1/0718/0350/2662/files/fallo-logo-gold.svg?v=1773013247"
+            alt="Fallo Corp"
+            className="h-10"
+          />
         </Link>
         <nav className="flex gap-8">
           {/* Top level menu items */}
