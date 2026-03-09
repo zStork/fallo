@@ -148,23 +148,71 @@ function MenuMobileNav({
 }) {
   return (
     <nav className="grid gap-4 p-6 sm:gap-6 sm:px-12 sm:py-8">
-      {/* Top level menu items */}
-      {(menu?.items || []).map((item) => (
-        <span key={item.id} className="block">
-          <Link
-            to={item.to}
-            target={item.target}
-            onClick={onClose}
-            className={({isActive}) =>
-              isActive ? 'pb-1 border-b -mb-px' : 'pb-1'
-            }
-          >
-            <Text as="span" size="copy">
-              {item.title}
-            </Text>
-          </Link>
-        </span>
-      ))}
+      <span className="block">
+        <Link
+          to="/pages/work"
+          onClick={onClose}
+          className={({isActive}) =>
+            isActive ? 'pb-1 border-b border-fallo-gold -mb-px text-fallo-gold' : 'pb-1'
+          }
+        >
+          <Text as="span" size="copy">
+            Work
+          </Text>
+        </Link>
+      </span>
+      <span className="block">
+        <Link
+          to="/pages/services"
+          onClick={onClose}
+          className={({isActive}) =>
+            isActive ? 'pb-1 border-b border-fallo-gold -mb-px text-fallo-gold' : 'pb-1'
+          }
+        >
+          <Text as="span" size="copy">
+            Services
+          </Text>
+        </Link>
+      </span>
+      <span className="block">
+        <Link
+          to="/pages/company"
+          onClick={onClose}
+          className={({isActive}) =>
+            isActive ? 'pb-1 border-b border-fallo-gold -mb-px text-fallo-gold' : 'pb-1'
+          }
+        >
+          <Text as="span" size="copy">
+            Company
+          </Text>
+        </Link>
+      </span>
+      <span className="block">
+        <Link
+          to="/pages/jardines"
+          onClick={onClose}
+          className={({isActive}) =>
+            isActive ? 'pb-1 border-b border-fallo-gold -mb-px text-fallo-gold' : 'pb-1'
+          }
+        >
+          <Text as="span" size="copy">
+            Jardines
+          </Text>
+        </Link>
+      </span>
+      <span className="block">
+        <Link
+          to="/pages/contact"
+          onClick={onClose}
+          className={({isActive}) =>
+            isActive ? 'pb-1 border-b border-fallo-gold -mb-px text-fallo-gold' : 'pb-1'
+          }
+        >
+          <Text as="span" size="copy">
+            Contact
+          </Text>
+        </Link>
+      </span>
     </nav>
   );
 }
@@ -277,20 +325,51 @@ function DesktopHeader({
           />
         </Link>
         <nav className="flex gap-8">
-          {/* Top level menu items */}
-          {(menu?.items || []).map((item) => (
-            <Link
-              key={item.id}
-              to={item.to}
-              target={item.target}
-              prefetch="intent"
-              className={({isActive}) =>
-                isActive ? 'pb-1 border-b -mb-px' : 'pb-1'
-              }
-            >
-              {item.title}
-            </Link>
-          ))}
+          <Link
+            to="/pages/work"
+            prefetch="intent"
+            className={({isActive}) =>
+              isActive ? 'pb-1 border-b border-fallo-gold -mb-px text-fallo-gold' : 'pb-1 hover:text-fallo-gold transition-colors'
+            }
+          >
+            Work
+          </Link>
+          <Link
+            to="/pages/services"
+            prefetch="intent"
+            className={({isActive}) =>
+              isActive ? 'pb-1 border-b border-fallo-gold -mb-px text-fallo-gold' : 'pb-1 hover:text-fallo-gold transition-colors'
+            }
+          >
+            Services
+          </Link>
+          <Link
+            to="/pages/company"
+            prefetch="intent"
+            className={({isActive}) =>
+              isActive ? 'pb-1 border-b border-fallo-gold -mb-px text-fallo-gold' : 'pb-1 hover:text-fallo-gold transition-colors'
+            }
+          >
+            Company
+          </Link>
+          <Link
+            to="/pages/jardines"
+            prefetch="intent"
+            className={({isActive}) =>
+              isActive ? 'pb-1 border-b border-fallo-gold -mb-px text-fallo-gold' : 'pb-1 hover:text-fallo-gold transition-colors'
+            }
+          >
+            Jardines
+          </Link>
+          <Link
+            to="/pages/contact"
+            prefetch="intent"
+            className={({isActive}) =>
+              isActive ? 'pb-1 border-b border-fallo-gold -mb-px text-fallo-gold' : 'pb-1 hover:text-fallo-gold transition-colors'
+            }
+          >
+            Contact
+          </Link>
         </nav>
       </div>
       <div className="flex items-center gap-1">
