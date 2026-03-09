@@ -28,7 +28,6 @@ import invariant from 'tiny-invariant';
 import {PageLayout} from '~/components/PageLayout';
 import {GenericError} from '~/components/GenericError';
 import {NotFound} from '~/components/NotFound';
-import {CustomCursor} from '~/components/CustomCursor';
 import favicon from '~/assets/favicon.svg';
 import {seoPayload} from '~/lib/seo.server';
 import styles from '~/styles/app.css?url';
@@ -156,7 +155,6 @@ function Layout({children}: {children?: React.ReactNode}) {
         <Links />
       </head>
       <body>
-        <CustomCursor />
         {data ? (
           <Analytics.Provider
             cart={data.cart}
