@@ -23,8 +23,8 @@ export default function Homepage() {
     <div className="bg-fallo-black">
       {/* Section 1: Hero */}
       <HeroFullscreen
-        backgroundType="image"
-        backgroundSrc="/hero-bg.jpg"
+        backgroundType="video"
+        backgroundSrc="https://cdn.shopify.com/videos/c/o/v/666ead3699994eba875616044c2c5fde.mp4"
         eyebrow="fàl·lo — verb | Italian"
         title="The Quality of Being Focused, Innovative & Results Driven."
         subtitle={'"GET IT DONE"'}
