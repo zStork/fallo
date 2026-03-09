@@ -75,7 +75,10 @@ export default function Homepage() {
         title="Lifestyle Gear Bags"
         panelColor="bg-fallo-khaki"
         clientLogos={['Linksoul', 'Warroad', 'Manduka', 'Brands & People']}
-        productImages={['/placeholder-bag-1.jpg', '/placeholder-bag-2.jpg']}
+        productImages={[
+          'https://cdn.shopify.com/s/files/1/0732/7311/4843/files/TYLER-GLITTERHEART-TOTE-625.webp?v=1773020174',
+          'https://cdn.shopify.com/s/files/1/0732/7311/4843/files/IMG_92711-864x1080-1.webp?v=1733888739'
+        ]}
         reverse={false}
       />
 
